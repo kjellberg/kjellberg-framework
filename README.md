@@ -29,6 +29,30 @@ function init_kjellberg_coupons() {
 // Require "Advanced Custom Fields".
 Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
 ```
+
+![require-plugins](https://cloud.githubusercontent.com/assets/2277443/21863989/ea0b9178-d83f-11e6-9274-52a387b44cc6.png)
+
+#### Create admin notices
+```php
+/**
+ * Prints an admin notice
+ *
+ * @param string $message (required)
+ * @param boolean $dissmissible (optional), default: true
+ * @param boolean $escape_attr (optional), default: true
+*/
+
+Notice::success( 'This is a success message' );
+Notice::information( 'This is an information message' );
+Notice::warning( 'This is a update message' );
+Notice::error( 'This is a error message' );
+
+Notice::information( 'This is a non dismissible information message', false );
+Notice::information( 'This is a <strong>HTML-formatted</strong> message', true, false );
+```
+
+![notice-boxes](https://cloud.githubusercontent.com/assets/2277443/21863937/b5f3e7aa-d83f-11e6-8bc6-6c88462118aa.png)
+
 ### Post Types
 #### Create
 ```php
