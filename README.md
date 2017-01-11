@@ -40,6 +40,9 @@ $coupons->set( 'menu_position', 5 );
 
 // Register taxonomies.
 $coupons->set( 'taxonomies', array( 'category', 'post_tag' ) );
+
+// Use a custom slug for our post type
+$coupons->set( 'rewrite', array( 'slug' => 'coupons' ) );
 ```
 
 #### Set labels for your post type
