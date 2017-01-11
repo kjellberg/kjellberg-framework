@@ -1,15 +1,21 @@
 <?php
 if ( ! class_exists( 'Requires' ) ) {
 	class Requires {
+
+		/**
+		 * Require install of another plugin.
+		 * @param $name
+		 * @param $title
+		*/
 		public static function plugin( $name, $slug ) {
-			$required_plugin = new RequirePlugin( $name, $slug );
+			$required_plugin = new KB_RequirePlugin( $name, $slug );
 			add_action( 'tgmpa_register', array( $required_plugin, 'hook' ) );
 		}
 	}
 }
 
-if ( ! class_exists( 'RequirePlugin' ) ) {
-	class RequirePlugin {
+if ( ! class_exists( 'KB_RequirePlugin' ) ) {
+	class KB_RequirePlugin {
 		private $_name = '';
 		private $_slug = '';
 

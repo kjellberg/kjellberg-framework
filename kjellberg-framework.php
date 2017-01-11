@@ -23,8 +23,6 @@ require_once( KJBRGFRMWRK_DIR . 'src/require_plugin.php' );
 add_action( 'plugins_loaded', 'register_kjellberg_framework4132' );
 
 function register_kjellberg_framework4132() {
-	global $kjellberg;
-	$kjellberg = 'test (it works)';
 	do_action( 'kframework_loaded' );
 }
 
