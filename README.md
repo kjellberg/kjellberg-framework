@@ -1,6 +1,6 @@
 # Kjellberg Framework for WordPress
 
-### Table of contents
+## Table of contents
 1. [Installation & Usage](#installation--usage)
 2. [Features and methods](#features-and-methods)
 	1. [General](#general)
