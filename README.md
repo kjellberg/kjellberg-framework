@@ -1,5 +1,15 @@
 # Kjellberg Framework for WordPress
 
+1. [Installation & Usage](#installation--usage)
+2. [Features and methods](#features-and-methods)
+	1. [General](#general)
+		1. [Require a Plugin](#require-a-plugin)
+		2. [Create Admin Notices](#create-admin-notices)
+	2. [Post Types](#post-types)
+		1. [Create a Post Type](#create-a-post-type)
+		2. [Set Post Type Arguments](#set-arguments-for-your-post-type)
+		3. [Set Post Type Labels](#set-labels-for-your-post-type)
+
 ## Installation & Usage
 The framework calls the hook ```kframework_loaded``` when it's successfully loaded. So to make sure that Kjellberg Framework is installed and loaded before your code, you should **ALWAYS** wait for the ```kframework_loaded```-hook before calling any Kjellberg Framework classes.
 
@@ -55,7 +65,7 @@ Notice::information( 'This is a <strong>HTML-formatted</strong> message', true, 
 
 
 ## Post Types
-#### Create
+#### Create a post type
 ```php
 /** 
  * Register a Post Type
