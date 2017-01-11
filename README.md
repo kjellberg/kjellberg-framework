@@ -9,7 +9,7 @@
  * @param $slug
 */
 
-// Require "Advanced Custom Fields"
+// Require "Advanced Custom Fields".
 Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
 ```
 ## Post Types
@@ -21,7 +21,7 @@ Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
  * @param $function_name
 */
 
-// Creates a post type "Coupon" for coupons
+// Creates a post type for "Coupons".
 Posttype::create( 'Coupons', 'coupons' );
 ```
 #### Set arguments for your post type
@@ -32,20 +32,20 @@ Posttype::create( 'Coupons', 'coupons' );
  * @param $value
 */
 
-// Creates a post type "Coupon" for coupons
+// Creates a post type for "Coupons".
 $coupons = Posttype::create( 'Coupons', 'coupons' );
 
 // Set 'menu_position' to 5.
 $coupons->set( 'menu_position', 5 );
 
-// Register taxonomies
+// Register taxonomies.
 $coupons->set( 'taxonomies', array( 'category', 'post_tag' ) );
 ```
 
 #### Set labels for your post type
 ```php
 /**
- * "Labels" is a post type argument, so we can use ->set() for that.
+ * "Labels" is a post type argument, so we can use ->set() to register labels.
 */
 
 $coupons = Posttype::create( 'Coupons', 'coupons' );
