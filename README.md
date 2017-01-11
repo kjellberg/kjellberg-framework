@@ -18,7 +18,7 @@ function init_kjellberg_coupons() {
 ## Features and methods
 ### General
 
-### Require a plugin
+#### Require a plugin
 ![require-plugins](https://cloud.githubusercontent.com/assets/2277443/21863989/ea0b9178-d83f-11e6-9274-52a387b44cc6.png)
 ```php
 /** 
@@ -33,7 +33,7 @@ Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
 
 
 
-### Create admin notices
+#### Create admin notices
 ![notice-boxes](https://cloud.githubusercontent.com/assets/2277443/21863937/b5f3e7aa-d83f-11e6-8bc6-6c88462118aa.png)
 ```php
 /**
@@ -56,7 +56,7 @@ Notice::information( 'This is a <strong>HTML-formatted</strong> message', true, 
 
 
 ## Post Types
-### Create
+#### Create
 ```php
 /** 
  * Register a Post Type
@@ -68,7 +68,7 @@ Notice::information( 'This is a <strong>HTML-formatted</strong> message', true, 
 // Create a post type for "Coupons".
 Posttype::create( 'Coupons', 'coupons' );
 ```
-### Set arguments for your post type
+#### Set arguments for your post type
 ```php
 /**
  * Register arguments for your post type
@@ -89,7 +89,7 @@ $coupons->set( 'taxonomies', array( 'category', 'post_tag' ) );
 $coupons->set( 'rewrite', array( 'slug' => 'coupons' ) );
 ```
 
-### Set labels for your post type
+#### Set labels for your post type
 ```php
 // Create a post type for "Coupons".
 $coupons = Posttype::create( 'Coupons', 'coupons' );
