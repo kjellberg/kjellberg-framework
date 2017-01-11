@@ -10,7 +10,7 @@ add_action( 'kframework_loaded', 'init_kjellberg_coupons' );
 
 function init_kjellberg_coupons() {
 	// Create a post type for "Coupons".
-	$coupons = Posttype::create( 'Coupons', 'coupons' );
+	Posttype::create( 'Coupons', 'coupons' );
 }
 ```
 
