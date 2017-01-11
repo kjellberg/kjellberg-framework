@@ -41,3 +41,23 @@ $coupons->set( 'menu_position', 5 );
 // Register taxonomies
 $coupons->set( 'taxonomies', array( 'category', 'post_tag' ) );
 ```
+
+#### Set labels for your post type
+```php
+/**
+ * "Labels" is a post type argument, so we can use ->set() for that.
+*/
+
+$coupons = Posttype::create( 'Coupons', 'coupons' );
+$coupons->set('labels', array(
+  'name'                  => __( 'Coupons', 'text_domain' ),
+  'singular_name'         => __( 'Coupon', 'text_domain' ),
+  'menu_name'             => __( 'Coupons', 'text_domain' ),
+  'add_new_item'          => __( 'Add New Coupon', 'text_domain' ),
+  ...
+  'new_item'              => __( 'New Coupon', 'text_domain' ),
+  'edit_item'             => __( 'Edit Coupon', 'text_domain' ),
+  'update_item'           => __( 'Update Coupon', 'text_domain' ),
+  ...
+));
+```
