@@ -1,6 +1,22 @@
 # Kjellberg Framework for WordPress
 
-## General
+## Installation & Usage
+The framework calls the hook ```kframework_loaded``` when it's successfully loaded. So to make sure that Kjellberg Framework is installed and loaded before your code, you should **ALWAYS** wait for the ```kframework_loaded```-hook before calling any Kjellberg Framework classes.
+
+**Example:**
+```php
+// Wait for framework too load.
+add_action( 'kframework_loaded', 'init_kjellberg_coupons' );
+
+function init_kjellberg_coupons() {
+	// Create a post type for "Coupons".
+	$coupons = Posttype::create( 'Coupons', 'coupons' );
+}
+```
+
+
+### General
+
 #### Require a plugin
 ```php
 /** 
@@ -12,7 +28,7 @@
 // Require "Advanced Custom Fields".
 Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
 ```
-## Post Types
+### Post Types
 #### Create
 ```php
 /** 
@@ -21,7 +37,7 @@ Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
  * @param $function_name
 */
 
-// Creates a post type for "Coupons".
+// Create a post type for "Coupons".
 Posttype::create( 'Coupons', 'coupons' );
 ```
 #### Set arguments for your post type
@@ -32,7 +48,7 @@ Posttype::create( 'Coupons', 'coupons' );
  * @param $value
 */
 
-// Creates a post type for "Coupons".
+// Create a post type for "Coupons".
 $coupons = Posttype::create( 'Coupons', 'coupons' );
 
 // Set 'menu_position' to 5.
@@ -47,7 +63,7 @@ $coupons->set( 'rewrite', array( 'slug' => 'coupons' ) );
 
 #### Set labels for your post type
 ```php
-// Creates a post type for "Coupons".
+// Create a post type for "Coupons".
 $coupons = Posttype::create( 'Coupons', 'coupons' );
 
 // "Labels" is a post type argument, so we can use ->set() to register labels.
