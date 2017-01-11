@@ -4,9 +4,9 @@
 #### Require another plugin
 ```php
 /** 
- * Require install of another plugin.
+ * Tells the user to download another plugin from WordPress plugin repository.
  * @param $name
- * @param $title
+ * @param $slug
 */
 
 Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
