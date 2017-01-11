@@ -1,6 +1,6 @@
 # Kjellberg Framework for WordPress
 
-### General
+## General
 #### Require a plugin
 ```php
 /** 
@@ -12,7 +12,7 @@
 // Require "Advanced Custom Fields"
 Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
 ```
-### Post Types
+## Post Types
 #### Create
 ```php
 /** 
@@ -23,4 +23,21 @@ Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
 
 // Creates a post type "Coupon" for coupons
 Posttype::create( 'Coupons', 'coupons' );
+```
+#### Set arguments for your post type
+```php
+/**
+ * Register arguments for your post type
+ * @param $key
+ * @param $value
+*/
+
+// Creates a post type "Coupon" for coupons
+$coupons = Posttype::create( 'Coupons', 'coupons' );
+
+// Set 'menu_position' to 5.
+$coupons->set( 'menu_position', 5 );
+
+// Register taxonomies
+$coupons->set( 'taxonomies', array( 'category', 'post_tag' ) );
 ```
