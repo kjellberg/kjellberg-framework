@@ -15,6 +15,7 @@ function init_kjellberg_coupons() {
 ```
 
 
+## Features and methods
 ### General
 
 #### Require a plugin
