@@ -47,11 +47,10 @@ $coupons->set( 'rewrite', array( 'slug' => 'coupons' ) );
 
 #### Set labels for your post type
 ```php
-/**
- * "Labels" is a post type argument, so we can use ->set() to register labels.
-*/
-
+// Creates a post type for "Coupons".
 $coupons = Posttype::create( 'Coupons', 'coupons' );
+
+// "Labels" is a post type argument, so we can use ->set() to register labels.
 $coupons->set('labels', array(
   'name'                  => __( 'Coupons', 'text_domain' ),
   'singular_name'         => __( 'Coupon', 'text_domain' ),
@@ -64,3 +63,4 @@ $coupons->set('labels', array(
   ...
 ));
 ```
+All available labels can be found at: https://codex.wordpress.org/Function_Reference/register_post_type
