@@ -1,7 +1,7 @@
 # Kjellberg Framework for WordPress
 
 
-#### Require another plugin
+#### Require a plugin
 ```php
 /** 
  * Tells the user to download another plugin from WordPress plugin repository.
@@ -9,5 +9,6 @@
  * @param $slug
 */
 
+// Require "Advanced Custom Fields"
 Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
 ```
