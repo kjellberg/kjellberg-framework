@@ -22,8 +22,8 @@ function init_kjellberg_coupons() {
 ```php
 /** 
  * Tells the user to download another plugin from WordPress plugin repository.
- * @param $name
- * @param $slug
+ * @param $name (required)
+ * @param $slug (required)
 */
 
 // Require "Advanced Custom Fields".
@@ -34,8 +34,9 @@ Requires::plugin( 'Advanced Custom Fields', 'advanced-custom-fields' );
 ```php
 /** 
  * Register a Post Type
- * @param $title
- * @param $function_name
+ * @param $title (required)
+ * @param $function_name (required)
+ * @param $args (optional)
 */
 
 // Create a post type for "Coupons".
@@ -45,8 +46,8 @@ Posttype::create( 'Coupons', 'coupons' );
 ```php
 /**
  * Register arguments for your post type
- * @param $key
- * @param $value
+ * @param $key (required)
+ * @param $value (required)
 */
 
 // Create a post type for "Coupons".
