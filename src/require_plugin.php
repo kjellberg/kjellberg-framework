@@ -4,12 +4,13 @@ if ( ! class_exists( 'Requires' ) ) {
 
 		/**
 		 * Require install of another plugin.
-		 * @param $name
-		 * @param $title
+		 *
+		 * @param string $name
+		 * @param string $title
 		*/
 		public static function plugin( $name, $slug ) {
 			$required_plugin = new KB_RequirePlugin( $name, $slug );
-			add_action( 'tgmpa_register', array( $required_plugin, 'hook' ) );
+			add_action( 'tgmpa_register', array( $required_plugin, 'tgmpa_register' ) );
 		}
 	}
 }
@@ -24,15 +25,13 @@ if ( ! class_exists( 'KB_RequirePlugin' ) ) {
 			$this->_slug = $slug;
 		}
 
-		public function hook() {
+		public function tgmpa_register() {
 			$plugins = array(
-
 				array(
 					'name'      => $this->_name,
 					'slug'      => $this->_slug,
 					'required'  => true,
 				),
-
 			);
 
 			$config = array(

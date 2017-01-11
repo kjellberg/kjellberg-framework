@@ -4,24 +4,30 @@ if ( ! class_exists( 'Posttype' ) ) {
 		private $_function_name;
 		private $_args = array();
 
-
 		/**
 		 * Register a Post Type
-		 * @param $title
-		 * @param $function_name
+		 *
+		 * @param string title
+		 * @param string $function_name
+		 * @param array $args
 		*/
-		public static function create( $name, $function_name, $public = true, $has_archive = true ) {
+		public static function create( $name, $function_name, $args = array() ) {
 
 			$posttype = new Posttype();
 			$posttype->_function_name = $function_name;
-			$posttype->_args = array(
-				'labels' => array(
-					'name' => $name,
-					'singular_name' => $name,
-				),
-				'public' => $public,
-				'has_archive' => $has_archive,
-		    );
+
+			if ( empty( $args ) ) {
+				$posttype->_args = array(
+					'labels' => array(
+						'name' => $name,
+						'singular_name' => $name,
+					),
+					'public' => true,
+					'has_archive' => true,
+			    );
+		    } else {
+		    	$posttype->_args = $args;
+		    }
 
 			add_action( 'init', array( $posttype, 'register_post_type' ) );
 
@@ -30,8 +36,9 @@ if ( ! class_exists( 'Posttype' ) ) {
 
 		/**
 		 * Register arguments for your post type
-		 * @param $key
-		 * @param $value
+		 *
+		 * @param string $key
+		 * @param string $value
 		*/
 		public function set( $key, $value ) {
 			$this->_args[ $key ] = $value;

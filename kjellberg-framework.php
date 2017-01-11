@@ -15,6 +15,7 @@ define( 'KJBRGFRMWRK_DIR',  plugin_dir_path( __FILE__ ) );
 
 require_once( KJBRGFRMWRK_DIR . 'lib/class-tgm-plugin-activation.php' );
 require_once( KJBRGFRMWRK_DIR . 'src/posttype.php' );
+require_once( KJBRGFRMWRK_DIR . 'src/notice.php' );
 require_once( KJBRGFRMWRK_DIR . 'src/require_plugin.php' );
 
 /**
@@ -25,4 +26,3 @@ add_action( 'plugins_loaded', 'register_kjellberg_framework4132' );
 function register_kjellberg_framework4132() {
 	do_action( 'kframework_loaded' );
 }
-
