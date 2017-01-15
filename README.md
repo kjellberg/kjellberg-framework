@@ -144,7 +144,7 @@ $coupons = Posttype::create( 'Coupons', 'coupons' );
 
 /**
  * Add admin column
- * Register a custom admin column for the Custom Post types dashboard page.
+ * Register a custom admin column for the Custom Post types admin table.
  *
  * @param string $label (required)
  * @param callback $callback_function (required)
@@ -160,3 +160,19 @@ function coupons_column_shortcode( $post ) {
 ```
 
 ![add_admin_column](https://cloud.githubusercontent.com/assets/2277443/21963534/ef5693e4-db3c-11e6-93ba-c80ccff6abee.png)
+
+#### Remove an admin column for your post type.
+```php
+// Create a post type for "Coupons".
+$coupons = Posttype::create( 'Coupons', 'coupons' );
+
+/**
+ * Remove admin column
+ * Remove a column from post types admin table.
+ *
+ * @param string $key (required)
+*/
+
+$coupons->remove_admin_column( 'date' );
+
+```
