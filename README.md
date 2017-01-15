@@ -10,6 +10,7 @@
 		1. [Create a Post Type](#create-a-post-type)
 		2. [Set Post Type Arguments](#set-arguments-for-your-post-type)
 		3. [Set Post Type Labels](#set-labels-for-your-post-type)
+		4. [Add admin columns](#add-an-admin-column-for-your-post-type)
 
 ## Installation & Usage
 The framework calls the hook ```kframework_loaded``` when it's successfully loaded. So to make sure that Kjellberg Framework is installed and loaded before your code, you should **ALWAYS** wait for the ```kframework_loaded```-hook before calling any Kjellberg Framework classes.
