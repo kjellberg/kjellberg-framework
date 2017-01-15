@@ -135,3 +135,27 @@ $coupons->set('labels', array(
 	'filter_items_list'     => __( 'Filter Coupons list', 'text_domain' ),
 ));
 ```
+
+#### Add an admin column for your post type.
+```php
+// Create a post type for "Coupons".
+$coupons = Posttype::create( 'Coupons', 'coupons' );
+
+/**
+ * Add admin column
+ * Register a custom admin column for the Custom Post types dashboard page.
+ *
+ * @param string $label (required)
+ * @param callback $callback_function (required)
+*/
+
+$coupons->add_admin_column( 'Post ID', 'coupons_column_shortcode' );
+
+// Admin column callback.
+function coupons_column_shortcode( $post ) {
+	$post_id = $post->ID; // $post references to the current row.
+	return "ID: {$post_id}";
+}
+```
+
+![add_admin_column](https://cloud.githubusercontent.com/assets/2277443/21963534/ef5693e4-db3c-11e6-93ba-c80ccff6abee.png)
