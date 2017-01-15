@@ -5,6 +5,7 @@ if ( ! class_exists( 'Posttype' ) ) {
 		private $_args = array();
 		private $_column_labels = array();
 		private $_column_callbacks = array();
+		private $_column_deleted = array();
 
 		/**
 		 * Register a Post Type
@@ -58,18 +59,28 @@ if ( ! class_exists( 'Posttype' ) ) {
 
 		/**
 		 * Add admin column
-		 * Register a custom admin column for the Custom Post types dashboard page.
+		 * Register a custom admin column for the Custom Post types admin table.
 		 *
-		 * @param string $label
-		 * @param callback $callback_function
-		 * @param int $priority
+		 * @param string $label (required)
+		 * @param callback $callback_function (required)
 		*/
-		public function add_admin_column( $label, $callback_function, $priority = 10 ) {
+		public function add_admin_column( $label, $callback_function ) {
 			// Creates thead label for column.
 			$this->_column_labels[ sanitize_title( $label ) ] = $label;
 
 			// Save our callback function in a array for later use.
 			$this->_column_callbacks[ sanitize_title( $label ) ] = $callback_function;
+		}
+
+		/**
+		 * Remove admin column
+		 * Remove a column from post types admin table.
+		 *
+		 * @param string $key (required)
+		*/
+		public function remove_admin_column( $key ) {
+			// Store deleted $key in an array for later when running filter.
+			$this->_column_deleted[ $key ] = 1;
 		}
 
 		/**
@@ -79,6 +90,13 @@ if ( ! class_exists( 'Posttype' ) ) {
 		 * @param array $columns Default columns.
 		*/
 		public function register_admin_columns_thead( $columns ) {
+
+			// Loop trough all $columns and unset those who matches with the $this->_column_deleted array.
+			foreach ( $columns as $key => $value ) {
+				if ( isset( $this->_column_deleted[ $key ] ) ) {
+					unset( $columns[ $key ] );
+				}
+			}
 
 			if ( isset( $columns['date'] ) ) {
 				// Unset date column if set so that we can add it to the end of array.
@@ -105,7 +123,6 @@ if ( ! class_exists( 'Posttype' ) ) {
 		 * @param array $columns Default columns.
 		*/
 		public function register_admin_columns( $column ) {
-
 			if ( isset( $this->_column_callbacks[ $column ] ) ) {
 
 				// Get the global $post variable for current row.
